@@ -1,0 +1,88 @@
+<div class="animated fadeIn">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <tr *ngFor="let event of bet.events" style="text-align: center"> -->
+                <div class="card">
+                    <div class="card-header">
+                        Informações sobre a aposta
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class=""><strong>Código BETWIN:</strong></label>
+                                {{bet.hashId}}
+                            </div>
+                            <div class="col-md-4">
+                                <label class=""><strong>Cliente:</strong></label>
+                                {{bet.customer.name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label class=""><strong>Colaborador:</strong></label>
+                                {{bet.customer.agent.name}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><strong>Valor Apostado:</strong></label>
+                                {{bet.betValue | currency:'BRL': true : '1.2-2'}}
+                            </div>
+                            <div class="col-md-4">
+                                <label><strong>R$ Prêmio:</strong></label>
+                                {{bet.expectedValueDiscountCommission | currency:'BRL': true :
+                                '1.2-2'}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><strong>% Comissão:</strong></label>
+                                {{bet.commissionPercent | percent: '1.2-2'}}
+                            </div>
+                            <div class="col-md-4">
+                                <label><strong>R$ Comissão:</strong></label>
+                                {{bet.commissionValue | currency:'BRL': true : '1.2-2'}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><strong>Soma das Odds:</strong></label>
+                                {{bet.totalOdd}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="select1"><strong>Status da Aposta</strong></label>
+                                <select id="select1" name="select1" class="form-control" formControlName="betStatus">
+                                    <option value="0">PENDENTE</option>
+                                    <option value="1">REGISTRADA</option>
+                                    <option value="2">CANCELADA</option>
+                                    <option value="3">VENCIDA</option>
+                                    <option value="4">PERDIDA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4" *ngFor="let event of bet.events; index as i">
+                <div class="card">
+                    <div class="card-header">
+                        Evento {{i+1}}
+                    </div>
+                    <div class="card-body">
+                        <div><strong>Jogo: </strong>{{event.eventDescription}}</div>
+                        <div><strong>Competição: </strong>{{event.competition}}</div>
+                        <div><strong>Mercado: </strong>{{event.marketDescription}}</div>
+                        <div><strong>Odd: </strong>{{event.odd}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- <button [disabled]="loading" class="btn btn-primary">Register</button> -->
+            <button class="btn btn-block btn-success">Atualizar Status da Aposta</button>
+        </div>
+    </form>
+</div>
