@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AgentService } from '../../../core/services/AgentService';
 import { ApostaService } from '../../../core/services/ApostaService';
 
 @Component({
@@ -22,6 +21,14 @@ export class ListarApostaComponent implements OnInit {
 
   navigateDetailBet(betId) {
     this.router.navigate(['apostas/detalhar-apostas/'+betId]);
+  }
+
+  doBet(betID){
+    if(confirm('Deseja Efetuar a Aposta ?')){
+      this.apostaService.atualizaStatus(betID, 1).subscribe(() => {
+      });
+      window.location.reload();
+    }
   }
 
 }

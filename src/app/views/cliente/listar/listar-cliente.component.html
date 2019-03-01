@@ -7,26 +7,19 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nickname</th>
                                 <th>Nome</th>
                                 <th>Email</th>
                                 <th>CPF</th>
                                 <th>Agente</th>
-                                <th>Gerente</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let customer of customers">
                                 <td>{{customer.id}}</td>
-                                <td>{{customer.nickname}}</td>
-                                <td>{{customer.name}}</td>
-                                <td>{{customer.email}}</td>
-                                <td>{{customer.taxId}}</td>
+                                <td>{{customer.user.name}}</td>
+                                <td>{{customer.user.email}}</td>
+                                <td>{{customer.user.taxId}}</td>
                                 <td>{{customer.agent.name}}</td>
-                                <td>{{customer.agent.manager.name}}</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
                             </tr>
                         </tbody>
                     </table>

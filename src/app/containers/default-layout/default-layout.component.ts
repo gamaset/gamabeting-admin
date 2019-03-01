@@ -1,16 +1,20 @@
 import { Component, Input } from '@angular/core';
 import { navItems } from './../../_nav';
+import { TokenStorageService } from '../../core/auth/TokenStorageService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './default-layout.component.html'
 })
 export class DefaultLayoutComponent {
+  username: string;
   public navItems = navItems;
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  constructor() {
+  constructor(private tokenStorage: TokenStorageService, private router: Router) {
+    this.username = tokenStorage.getUsername();
 
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = document.body.classList.contains('sidebar-minimized');
@@ -19,5 +23,11 @@ export class DefaultLayoutComponent {
     this.changes.observe(<Element>this.element, {
       attributes: true
     });
+  }
+
+
+  logout(){
+    this.tokenStorage.signOut();
+    this.router.navigate(['login']);
   }
 }

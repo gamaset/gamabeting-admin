@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Agent } from '../models/Agent';
+import { UserModel } from '../models/UserModel';
 import { log } from 'util';
+import { environment } from '../../../environments/environment';
 
-const API_URL = 'http://localhost:8080/betwin-admin';
+const API_URL = environment.BASE_URL;
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -23,7 +24,7 @@ export class AgentService {
     return this.httpClient.get(`${API_URL}/api/v1/agents`, httpOptions);    
   }
   
-  createAgent(agent: Agent) {
+  createAgent(agent: UserModel) {
     return this.httpClient.post(`${API_URL}/api/v1/agents`, agent, httpOptions);    
   }
 

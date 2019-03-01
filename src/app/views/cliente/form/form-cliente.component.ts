@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import { Customer } from '../../../core/models/Customer';
 import { CustomerService } from '../../../core/services/customerService';
+import { CustomerModel } from '../../../core/models/CustomerModel';
+import { AgentModel } from '../../../core/models/AgentModel';
+import { AgentService } from '../../../core/services/agentService';
+import { log } from 'util';
 
 @Component({
   selector: 'form-cliente',
@@ -10,10 +13,11 @@ import { CustomerService } from '../../../core/services/customerService';
 })
 export class FormClienteComponent implements OnInit {
 
+  agentList: Array<AgentModel>;
   submitted: boolean = false;
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private customerService: CustomerService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private customerService: CustomerService, private agentService: AgentService) {
   }
 
   // convenience getter for easy access to form fields
@@ -21,13 +25,7 @@ export class FormClienteComponent implements OnInit {
 
   onSubmit() {
     console.log('> enviando formulario criacao de clientes..');
-
     this.submitted = true;
-
-    console.log(this.registerForm);
-    
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       console.log('Form de Clientes INVALIDO!');
       return;
@@ -35,13 +33,10 @@ export class FormClienteComponent implements OnInit {
     
     let formJson = JSON.parse(JSON.stringify(this.registerForm.value));
     
-    let customer = new Customer();
+    let customer = new CustomerModel();
     customer.name = formJson.name;
     customer.email = formJson.email;
-    customer.nickname = formJson.nickname;
     customer.taxId = formJson.taxId;
-    customer.password = formJson.password;
-    customer.agent = {id: 2};
 
     this.customerService.createCustomer(customer)
     .subscribe( data => {
@@ -52,6 +47,10 @@ export class FormClienteComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.agentService.listAgents().subscribe((result: any) => {
+      this.agentList = result.data;
+      console.log(`>>>>>>>>>> ${JSON.stringify(this.agentList)}`);
+    });
     this.createForm();
   }
 
@@ -59,16 +58,14 @@ export class FormClienteComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      nickname: ['', Validators.required],
       taxId: ['', Validators.required],
-      password: ['', Validators.required],
     });
 
-    this.registerForm.get('name').setValue("Zeca Santos");
-    this.registerForm.get('email').setValue("zeca@root.com");
-    this.registerForm.get('nickname').setValue("zecapostador");
-    this.registerForm.get('taxId').setValue("31294312911");
-    this.registerForm.get('password').setValue("cliente1234");
+    // this.registerForm.get('name').setValue("Zeca Santos");
+    // this.registerForm.get('username').setValue("zecapostador");
+    // this.registerForm.get('email').setValue("zeca@root.com");
+    // this.registerForm.get('taxId').setValue("31294312911");
+    // this.registerForm.get('password').setValue("cliente1234");
     
   }
 

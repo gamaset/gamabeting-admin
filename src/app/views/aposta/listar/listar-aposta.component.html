@@ -27,7 +27,7 @@
                                 <td>{{aposta.commissionPercent | percent: '1.2-2'}}</td>
                                 <td>{{aposta.commissionValue | currency:'BRL': true : '1.2-2'}}
                                 <td>{{aposta.expectedValueDiscountCommission | currency:'BRL': true : '1.2-2'}}
-                                <td>{{aposta.customer.name}}</td>
+                                <td>{{aposta.customer.user.name}}</td>
                                 <td>{{aposta.createdDate}}</td>
                                 <td>{{aposta.updatedDate}}</td>
                                 <td *ngIf="aposta.status == 0">
@@ -47,9 +47,10 @@
                                 </td>
                                 <td>
                                     <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
-                                        <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]"><i class="icon-control-play"
-                                                title="Efetuar Aposta"></i></a>
-                                        <a class="btn" href="#"><i class="icon-settings" title="Ajustar Aposta"></i></a>
+                                        <a class="btn" ><i class="icon-control-play" title="Efetuar Aposta" (click) = "doBet(aposta.id)"></i></a>
+                                        <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]" ><i class="icon-settings" title="Ajustar Aposta"></i></a>
+                                        <!-- <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]"><i class="icon-control-play"
+                                                title="Efetuar Aposta"></i></a> -->
                                         <a class="btn" href="#"><i class="icon-ban" title="Cancelar Aposta"></i></a>
                                     </div>
                                 </td>

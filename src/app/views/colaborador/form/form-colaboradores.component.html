@@ -17,6 +17,17 @@
                                 <div *ngIf="f.name.errors.required">Nome é obrigatório</div>
                             </div>
                         </div>
+                        <!--form-group USERNAME-->
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Username" formControlName="username"
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Apelido é obrigatório</div>
+                            </div>
+                        </div>
                         <!--form-group EMAIL-->
                         <div class="form-group input-group mb-3">
                             <div class="input-group-prepend">
@@ -29,17 +40,6 @@
                                 <div *ngIf="f.email.errors.email">Email deve ser um endereço de email válido</div>
                             </div>
                         </div>
-                        <!--form-group NICKNAME-->
-                        <div class="form-group input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nickname" formControlName="nickname"
-                                [ngClass]="{ 'is-invalid': submitted && f.nickname.errors }">
-                            <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
-                                <div *ngIf="f.nickname.errors.required">Nickname é obrigatório</div>
-                            </div>
-                        </div>
                         <!--form-group TAXID-->
                         <div class="form-group input-group mb-3">
                             <div class="input-group-prepend">
@@ -48,6 +48,16 @@
                             <input type="text" class="form-control" placeholder="CPF" formControlName="taxId" [ngClass]="{ 'is-invalid': submitted && f.taxId.errors }">
                             <div *ngIf="submitted && f.taxId.errors" class="invalid-feedback">
                                 <div *ngIf="f.taxId.errors.required">CPF é obrigatório</div>
+                            </div>
+                        </div>
+                        <!--form-group BUDGET-->
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-wallet"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Orçamento" formControlName="budget" [ngClass]="{ 'is-invalid': submitted && f.budget.errors }">
+                            <div *ngIf="submitted && f.budget.errors" class="invalid-feedback">
+                                <div *ngIf="f.budget.errors.required">Orçamento é obrigatório</div>
                             </div>
                         </div>
                         <!--form-group PASSWORD-->

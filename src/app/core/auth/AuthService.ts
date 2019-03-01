@@ -4,6 +4,7 @@ import { AuthLoginRequest } from './AuthLoginRequest';
 import { SignUpRequest } from './SignUpRequest';
 import { AuthLoginResponse } from './AuthLoginResponse';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
  
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,8 +16,8 @@ const httpOptions = {
 })
 export class AuthService {
  
-  private loginUrl = 'http://localhost:8080/betwin-admin/api/v1/auth/signin';
-  private signupUrl = 'http://localhost:8080/betwin-admin/api/v1/auth/signup';
+  private loginUrl = `${environment.BASE_URL}/api/v1/auth/signin`;
+  private signupUrl = `${environment.BASE_URL}/api/v1/auth/signup`;
  
   constructor(private http: HttpClient) {
   }

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, map } from 'rxjs/operators';
-import { log } from 'util';
-import { Customer } from '../models/Customer';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CustomerModel } from '../models/CustomerModel';
+import { environment } from '../../../environments/environment';
 
-const API_URL = 'http://localhost:8080/betwin-admin/api/v1/customers';
+const API_URL = `${environment.BASE_URL}/api/v1/customers`;
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -23,7 +21,7 @@ export class CustomerService {
     return this.httpClient.get(`${API_URL}`, httpOptions);    
   }
   
-  createCustomer(customer: Customer) {
+  createCustomer(customer: CustomerModel) {
     return this.httpClient.post(`${API_URL}`, customer, httpOptions);    
   }
 

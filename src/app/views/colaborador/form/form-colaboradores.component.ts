@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { AgentService } from '../../../core/services/AgentService';
-import { Agent } from '../../../core/models/Agent';
+import { AgentModel } from '../../../core/models/AgentModel';
 
 @Component({
   selector: 'form-colaboradores',
@@ -31,12 +31,13 @@ export class FormColaboradoresComponent implements OnInit {
     
     let formJson = JSON.parse(JSON.stringify(this.registerForm.value));
     
-    let agent = new Agent();
+    let agent = new AgentModel();
     agent.name = formJson.name;
-    agent.nickname = formJson.nickname;
+    agent.username = formJson.username;
     agent.taxId = formJson.taxId;
-    agent.birthDate = '1992-06-20';
-    agent.manager = {id: 1};
+    agent.email = formJson.email;
+    agent.budget = formJson.budget;
+    agent.password = formJson.password;
 
     this.agentService.createAgent(agent)
     .subscribe( data => {
@@ -54,15 +55,18 @@ export class FormColaboradoresComponent implements OnInit {
   createForm() {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      nickname: ['', Validators.required],
+      username: ['', Validators.required],
       taxId: ['', Validators.required, Validators.minLength(11), Validators.maxLength(11)],
+      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      budget: ['', [Validators.required, Validators.min(0)]],
     });
 
-    this.registerForm.get('name').setValue("zezinho");
-    this.registerForm.get('email').setValue("zezinho@express.com");
-    this.registerForm.get('taxId').setValue("31294312911");
-    this.registerForm.get('nickname').setValue("loginzezinho");
+    // this.registerForm.get('name').setValue("zezinho");
+    // this.registerForm.get('username').setValue("loginzezinho");
+    // this.registerForm.get('taxId').setValue("31294312911");
+    // this.registerForm.get('password').setValue("senha123");
+    // this.registerForm.get('email').setValue("zezinho@express.com");
 
   }
 

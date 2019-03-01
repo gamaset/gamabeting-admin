@@ -29,36 +29,15 @@
                                 <div *ngIf="f.email.errors.email">Email deve ser um endereço de email válido</div>
                             </div>
                         </div>
-                        <!--form-group NICKNAME-->
-                        <div class="form-group input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nickname" formControlName="nickname"
-                                [ngClass]="{ 'is-invalid': submitted && f.nickname.errors }">
-                            <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
-                                <div *ngIf="f.nickname.errors.required">Nickname é obrigatório</div>
-                            </div>
-                        </div>
                         <!--form-group TAXID-->
                         <div class="form-group input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="icon-login"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="CPF" formControlName="taxId" [ngClass]="{ 'is-invalid': submitted && f.taxId.errors }">
+                            <input type="text" class="form-control" placeholder="CPF" formControlName="taxId"
+                                [ngClass]="{ 'is-invalid': submitted && f.taxId.errors }">
                             <div *ngIf="submitted && f.taxId.errors" class="invalid-feedback">
                                 <div *ngIf="f.taxId.errors.required">CPF é obrigatório</div>
-                            </div>
-                        </div>
-                        <!--form-group PASSWORD-->
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-lock"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="Password" formControlName="password"
-                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
                             </div>
                         </div>
                         <!-- <div class="input-group mb-4">

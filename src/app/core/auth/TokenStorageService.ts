@@ -23,6 +23,14 @@ export class TokenStorageService {
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }
+
+  public isAuthenticated(): boolean {
+    return this.getToken() !== null;
+    // const token = localStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+    // return !this.jwtHelper.isTokenExpired(token);
+  }
  
   public saveUsername(username: string) {
     window.sessionStorage.removeItem(USERNAME_KEY);

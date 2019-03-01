@@ -45,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './core/auth/AuthInterceptor';
 import { AuthService } from './core/auth/AuthService';
 import { TokenStorageService } from './core/auth/TokenStorageService';
+import { AuthGuardService } from './core/auth/AuthGuardService';
 
 @NgModule({
   imports: [
@@ -75,6 +76,7 @@ import { TokenStorageService } from './core/auth/TokenStorageService';
     httpInterceptorProviders,
     AuthService,
     TokenStorageService,
+    AuthGuardService,
     // { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]

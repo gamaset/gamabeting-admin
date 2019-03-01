@@ -10,6 +10,7 @@
                                 <th>Apelido</th>
                                 <th>Nome</th>
                                 <th>CPF</th>
+                                <th>Orçamento</th>
                                 <th>Email</th>
                                 <th>Gerente</th>
                             </tr>
@@ -17,14 +18,13 @@
                         <tbody>
                             <tr *ngFor="let agent of agents">
                                 <td>{{agent.id}}</td>
-                                <td>{{agent.nickname}}</td>
-                                <td>{{agent.name}}</td>
-                                <td>{{agent.taxId}}</td>
-                                <td>{{agent.email}}</td>
+                                <td>{{agent.user.username}}</td>
+                                <td>{{agent.user.name}}</td>
+                                <td>{{agent.user.taxId}}</td>
+                                <td>{{agent.budget | currency:'BRL': true : '1.2-2'}}</td>
+                                <td>{{agent.user.email}}</td>
                                 <td>{{agent.manager.name}}</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
