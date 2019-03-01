@@ -16,7 +16,7 @@ export class ListarClienteComponent implements OnInit {
   ngOnInit() {
     this.customerService.listCustomers().subscribe((result: any) => {
       this.customers = result.data;
-    })
+    });
   }
 
 }
