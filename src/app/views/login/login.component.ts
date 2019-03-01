@@ -7,10 +7,11 @@ import { AuthService } from '../../core/auth/AuthService';
 
 @Component({
   selector: 'app-dashboard',
+  styleUrls: ['login.component.scss'],
   templateUrl: 'login.component.html'
 })
 export class LoginComponent {
-  submitted: boolean = false;
+  submitted = false;
   registerForm: FormGroup;
   isLoggedIn = false;
   isLoginFailed = false;

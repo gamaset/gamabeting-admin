@@ -2,13 +2,13 @@
   <main class="main d-flex align-items-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-4 col-sm-8 mx-auto">
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                   <h1>Login</h1>
-                  <p class="text-muted">Sign In to your account</p>
+                  <p class="text-muted">Faça login em sua conta</p>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user"></i></span>
@@ -30,10 +30,10 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-12">
                       <div class="form-group">
                         <!-- <button [disabled]="loading" class="btn btn-primary">Register</button> -->
-                        <button class="btn btn-primary px-4">Login</button>
+                        <button id="btn-login" class="btn btn-primary px-4">LOGIN</button>
                         <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
                           Erro ao efetuar Login: {{errorMessage}}
                         </div>

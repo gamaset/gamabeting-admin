@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { AgentService } from '../../../core/services/AgentService';
 import { AgentModel } from '../../../core/models/AgentModel';
 
@@ -10,7 +10,7 @@ import { AgentModel } from '../../../core/models/AgentModel';
 })
 export class FormColaboradoresComponent implements OnInit {
 
-  submitted: boolean = false;
+  submitted =  false;
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private agentService: AgentService) {
@@ -28,10 +28,9 @@ export class FormColaboradoresComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    
-    let formJson = JSON.parse(JSON.stringify(this.registerForm.value));
-    
-    let agent = new AgentModel();
+    const formJson = JSON.parse(JSON.stringify(this.registerForm.value));
+
+    const agent = new AgentModel();
     agent.name = formJson.name;
     agent.username = formJson.username;
     agent.taxId = formJson.taxId;
@@ -62,11 +61,11 @@ export class FormColaboradoresComponent implements OnInit {
       budget: ['', [Validators.required, Validators.min(0)]],
     });
 
-    // this.registerForm.get('name').setValue("zezinho");
-    // this.registerForm.get('username').setValue("loginzezinho");
-    // this.registerForm.get('taxId').setValue("31294312911");
-    // this.registerForm.get('password').setValue("senha123");
-    // this.registerForm.get('email').setValue("zezinho@express.com");
+    // this.registerForm.get('name').setValue('zezinho');
+    // this.registerForm.get('username').setValue('loginzezinho');
+    // this.registerForm.get('taxId').setValue('31294312911');
+    // this.registerForm.get('password').setValue('senha123');
+    // this.registerForm.get('email').setValue('zezinho@express.com');
 
   }
 
