@@ -56,6 +56,18 @@ export const navItems = [
       },
     ]
   },
+  {
+    name: 'Carteira',
+    url: '/carteiras',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Carteiras',
+        url: '/carteira/listar-carteiras',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
   // {
   //   name: 'Notifications',
   //   url: '/notifications',

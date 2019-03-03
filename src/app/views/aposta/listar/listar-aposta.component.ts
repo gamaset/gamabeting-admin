@@ -14,11 +14,9 @@ export class ListarApostaComponent implements OnInit {
 
 
   ngOnInit() {
-    this.apostaService.listarApostas().subscribe((result: any) => {
-      this.apostas = result.data;
-    })
+    this.listBets();
   }
-
+  
   navigateDetailBet(betId) {
     this.router.navigate(['apostas/detalhar-apostas/'+betId]);
   }
@@ -26,9 +24,15 @@ export class ListarApostaComponent implements OnInit {
   doBet(betID){
     if(confirm('Deseja Efetuar a Aposta ?')){
       this.apostaService.atualizaStatus(betID, 1).subscribe(() => {
+        this.listBets();
       });
-      window.location.reload();
     }
+  }
+
+  listBets(){
+    this.apostaService.listarApostas().subscribe((result: any) => {
+      this.apostas = result.data;
+    })
   }
 
 }

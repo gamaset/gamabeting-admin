@@ -12,24 +12,24 @@
                     <table class="table table-responsive-sm table-bordered table-striped table-sm">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Apelido</th>
-                                <th>Nome</th>
-                                <th>CPF</th>
+                                <th>Agente</th>
                                 <th>Orçamento</th>
-                                <th>Email</th>
-                                <th>Gerente</th>
+                                <th>Comissão Acum.</th>
+                                <th>Aposta Total Recebido</th>
+                                <th>Prêmio Total Pago</th>
+                                <th>Status Carteira</th>
+                                <th>Data Ult. Atualização</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let agent of agents">
-                                <td>{{agent.id}}</td>
-                                <td>{{agent.user.username}}</td>
-                                <td>{{agent.user.name}}</td>
-                                <td>{{agent.user.taxId}}</td>
-                                <td>{{agent.walletBalance.budget | currency:'BRL': true : '1.2-2'}}</td>
-                                <td>{{agent.user.email}}</td>
-                                <td>{{agent.manager.name}}</td>
+                            <tr *ngFor="let balance of balances">
+                                <td>{{balance.wallet.agent.name}}</td>
+                                <td>{{balance.budget | currency:'BRL': true : '1.2-2'}}</td>
+                                <td>{{balance.totalCommissionAmount | currency:'BRL': true : '1.2-2'}}</td>
+                                <td>{{balance.totalAmountReceived | currency:'BRL': true : '1.2-2'}}</td>
+                                <td>{{balance.totalAmountPaid | currency:'BRL': true : '1.2-2'}}</td>
+                                <td>{{balance.wallet.status}}</td>
+                                <td>{{balance.lastDateUpdate}}</td>
                                 <!--<td></td>-->
                             </tr>
                         </tbody>

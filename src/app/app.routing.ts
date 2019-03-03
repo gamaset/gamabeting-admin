@@ -76,7 +76,11 @@ export const routes: Routes = [
       {
         path: 'apostas',
         loadChildren: './views/aposta/aposta.module#ApostaModule'
-      }
+      },
+      {
+        path: 'carteira',
+        loadChildren: './views/carteira/carteira.module#CarteiraModule'
+      },
 
     ]
   }
