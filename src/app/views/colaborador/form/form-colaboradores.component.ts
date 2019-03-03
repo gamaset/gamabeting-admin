@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgentService } from '../../../core/services/AgentService';
 import { AgentModel } from '../../../core/models/AgentModel';
+import { MessagesService } from '../../../shared/messages/messages.service';
 
 @Component({
   selector: 'form-colaboradores',
   templateUrl: 'form-colaboradores.component.html'
 })
-export class FormColaboradoresComponent implements OnInit {
+export class FormColaboradoresComponent implements OnInit, OnDestroy {
 
-  submitted =  false;
+  submitted = false;
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private agentService: AgentService) {
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private agentService: AgentService,
+    private msgService: MessagesService) {
   }
 
   // convenience getter for easy access to form fields
@@ -39,10 +43,12 @@ export class FormColaboradoresComponent implements OnInit {
     agent.password = formJson.password;
 
     this.agentService.createAgent(agent)
-    .subscribe( data => {
-      console.log('agente criado: ' + JSON.stringify(data))
-      this.router.navigate(['colaboradores/listar-colaboradores']);
-    });
+      .subscribe(data => {
+        console.log('agente criado: ' + JSON.stringify(data));
+        this.router.navigate(['colaboradores/listar-colaboradores']);
+      }, (error) => {
+        this.msgService.showMsg('OCORREU UM ERRO', error.error.error, 'error');
+      });
 
   }
 
@@ -68,5 +74,7 @@ export class FormColaboradoresComponent implements OnInit {
     // this.registerForm.get('email').setValue('zezinho@express.com');
 
   }
-
+  ngOnDestroy(): void {
+    this.msgService.closeMsg();
+  }
 }

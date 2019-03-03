@@ -13,6 +13,7 @@ import { ListarColaboradoresComponent } from './listar/listar-colaboradores.comp
 // service
 import { AgentService } from '../../core/services/AgentService';
 import { FormColaboradoresComponent } from './form/form-colaboradores.component';
+import { UiCommomModule } from '../../shared/commom.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { FormColaboradoresComponent } from './form/form-colaboradores.component'
     ColaboradorRoutingModule,
     BsDropdownModule,
     ReactiveFormsModule,
+    UiCommomModule,
   ],
   providers: [AgentService],
   declarations: [ ListarColaboradoresComponent, FormColaboradoresComponent ]
