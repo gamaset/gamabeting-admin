@@ -23,7 +23,7 @@
                         <tbody>
                             <tr *ngFor="let aposta of apostas" style="text-align: center">
                                 <td>{{aposta.hashId}}</td>
-                                <td>{{aposta.totalOdd}}</td>
+                                <td>{{aposta.totalOdd | number}}</td>
                                 <td>{{aposta.betValue | currency:'BRL': true : '1.2-2'}}
                                 <td>{{aposta.commissionPercent | percent: '1.2-2'}}</td>
                                 <td>{{aposta.commissionValue | currency:'BRL': true : '1.2-2'}}

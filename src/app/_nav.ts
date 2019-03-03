@@ -1,21 +1,21 @@
 export const navItems = [
-  {
-    name: 'Dashboard Default',
-    url: '/dashboard-default',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    name: 'Dashboard',
-    url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info'
-    }
-  },
+  // {
+  //   name: 'Dashboard Default',
+  //   url: '/dashboard-default',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
+  // {
+  //   name: 'Dashboard',
+  //   url: '/dashboard',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info'
+  //   }
+  // },
   {
     title: true,
     name: 'Administrativo'
