@@ -9,6 +9,7 @@ import { CarteiraRoutingModule } from './carteira.routing.module';
 
 //components
 import { ListarCarteiraComponent } from './listar/listar-carteira.component';
+import { ListarTransacoesComponent } from './transacoes/listar-transacoes.component';
 
 // service
 import { WalletBalanceService } from '../../core/services/walletBalanceService';
@@ -21,6 +22,6 @@ import { WalletBalanceService } from '../../core/services/walletBalanceService';
     ReactiveFormsModule,
   ],
   providers: [WalletBalanceService],
-  declarations: [ ListarCarteiraComponent ]
+  declarations: [ ListarCarteiraComponent, ListarTransacoesComponent ]
 })
 export class CarteiraModule { }

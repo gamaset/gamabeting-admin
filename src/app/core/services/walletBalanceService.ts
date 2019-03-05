@@ -21,5 +21,8 @@ export class WalletBalanceService {
   listWallets(status) {
     return this.httpClient.get(`${API_URL}?status=${status}`, httpOptions);
   }
+  listByBalanceId(balanceId) {
+    return this.httpClient.get(`${API_URL}/${balanceId}/transactions`, httpOptions);
+  }
 
 }

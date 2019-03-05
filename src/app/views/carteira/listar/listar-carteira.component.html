@@ -3,12 +3,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-12">
                             <button type="button" class="btn btn-square btn-primary float-right" [routerLink]="['/colaboradores/cadastrar-colaborador']">Cadastrar
                                 Colaborador</button>
                         </div>
-                    </div>
+                    </div> -->
                     <table class="table table-responsive-sm table-bordered table-striped table-sm">
                         <thead>
                             <tr>
@@ -19,6 +19,7 @@
                                 <th>Prêmio Total Pago</th>
                                 <th>Status Carteira</th>
                                 <th>Data Ult. Atualização</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,9 +29,13 @@
                                 <td>{{balance.totalCommissionAmount | currency:'BRL': true : '1.2-2'}}</td>
                                 <td>{{balance.totalAmountReceived | currency:'BRL': true : '1.2-2'}}</td>
                                 <td>{{balance.totalAmountPaid | currency:'BRL': true : '1.2-2'}}</td>
-                                <td>{{balance.wallet.status}}</td>
+                                <td>{{balance.wallet.status.description}}</td>
                                 <td>{{balance.lastDateUpdate}}</td>
-                                <!--<td></td>-->
+                                <td>
+                                    <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
+                                        <a class="btn" [routerLink]="['/carteira/listar-transacoes', balance.id]" ><i class="icon-magnifier" title="Listar Transações"></i></a>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

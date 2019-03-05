@@ -21,8 +21,6 @@ export class ListarClienteComponent implements OnInit {
   }
 
   isDisplayButtonCreateCustomer(role){
-    console.log('aquii');
-    
     return this.roleGuardService.isExpectedRole(role);
   }
 

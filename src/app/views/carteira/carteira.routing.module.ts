@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ListarCarteiraComponent } from './listar/listar-carteira.component';
+import { ListarTransacoesComponent } from './transacoes/listar-transacoes.component';
 
 const routes: Routes = [
     {
@@ -17,13 +18,13 @@ const routes: Routes = [
                     title: 'Lista de Carteiras'
                 }
             },
-            // {
-            //     path: 'cadastrar-cliente',
-            //     component: FormClienteComponent,
-            //     data: {
-            //         title: 'Cadastrar Cliente'
-            //     }
-            // }, 
+            {
+                path: 'listar-transacoes/:balanceId',
+                component: ListarTransacoesComponent,
+                data: {
+                    title: 'Lista de Transações'
+                }
+            }, 
         ]
     }
 ];
