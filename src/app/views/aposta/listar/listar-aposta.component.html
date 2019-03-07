@@ -48,12 +48,10 @@
                                     <span class="badge badge-danger">PERDIDA</span>
                                 </td>
                                 <td>
-                                    <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
-                                        <a class="btn" ><i class="icon-control-play" title="Efetuar Aposta" (click) = "doBet(aposta.id)"></i></a>
-                                        <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]" ><i class="icon-settings" title="Ajustar Aposta"></i></a>
-                                        <!-- <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]"><i class="icon-control-play"
-                                                title="Efetuar Aposta"></i></a> -->
-                                        <a class="btn" href="#"><i class="icon-ban" title="Cancelar Aposta"></i></a>
+                                    <div class="btn-group">
+                                        <button *ngIf="showButtonRegisterBet(aposta.status)" class="btn btn-sm btn-primary" (click) = "doBet(aposta.id)" >Registrar</button>
+                                        <button *ngIf="showButtonRegisterBet(aposta.status)" class="btn btn-sm btn-danger" (click) = "cancelBet(aposta.id)" >Cancelar</button>
+                                        <button class="btn btn-sm btn-warning" (click) = "navigateDetailBet(aposta.id)" >Editar</button>
                                     </div>
                                 </td>
                             </tr>
