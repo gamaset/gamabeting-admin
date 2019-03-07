@@ -1,0 +1,65 @@
+#ticket{
+    background: white;
+    text-align: center;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.title{
+    font-size: 25px;
+    font-weight: bold;
+}
+#ticket-body{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.ticket-chip{
+    color: #f4f6f7;
+    font-weight: bold;
+    background: rgb(175, 0, 0);
+    padding: 2px 15px 0px;
+    border: solid 2px rgb(175, 0, 0);
+    border-radius: 4px;
+    font-size: 15px;
+}
+.ticket-body-title{
+    padding-top: 17px;
+    font-weight: bold;
+    color: grey;
+}
+#divisor{
+    background: #808e7d;
+    height: 14px;
+    margin-top: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: solid 1px #808e7d;
+    border-radius: 4px;
+}
+#ticket-details{
+    margin-top:10px;
+    text-align: right;
+}
+#payin,#datetime{
+    margin-top: -18px;
+}
+
+.event-result{
+    background: rgba(229, 229, 229, 0.73);
+    height: 23px;
+    color: grey;
+    font-size: 13px;
+}
+.event-title{
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+.span-details-align{
+    margin-left: 80px;
+}
+.hr-ticket-body{
+    border: solid 0.5px grey !important;
+    margin-top: 0px !important;
+}
+.ticket-fast{
+    font-size: 15px;
+}

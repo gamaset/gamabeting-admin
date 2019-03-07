@@ -47,6 +47,7 @@ import { AuthService } from './core/auth/AuthService';
 import { TokenStorageService } from './core/auth/TokenStorageService';
 import { AuthGuardService } from './core/auth/AuthGuardService';
 import { RoleGuardService } from './core/auth/RoleGuardService';
+import { UiCommomModule } from './shared/commom.module';
 
 @NgModule({
   imports: [
@@ -63,6 +64,7 @@ import { RoleGuardService } from './core/auth/RoleGuardService';
     TabsModule.forRoot(),
     ChartsModule,
     ReactiveFormsModule,
+    UiCommomModule
   ],
   declarations: [
     AppComponent,
