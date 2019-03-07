@@ -62,7 +62,8 @@ export class LoginComponent {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.router.navigate(['dashboard']);
+        // this.router.navigate(['dashboard']);
+        this.router.navigate(['apostas/listar-apostas']);
       },
       error => {
         console.log(error);

@@ -1,21 +1,21 @@
 export const navItems = [
-  {
-    name: 'Dashboard Default',
-    url: '/dashboard-default',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    name: 'Dashboard',
-    url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info'
-    }
-  },
+  // {
+  //   name: 'Dashboard Default',
+  //   url: '/dashboard-default',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
+  // {
+  //   name: 'Dashboard',
+  //   url: '/dashboard',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info'
+  //   }
+  // },
   {
     title: true,
     name: 'Administrativo'
@@ -52,6 +52,18 @@ export const navItems = [
       {
         name: 'Listar Apostas',
         url: '/apostas/listar-apostas',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
+  {
+    name: 'Carteira',
+    url: '/carteiras',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Carteiras',
+        url: '/carteira/listar-carteiras',
         icon: 'icon-puzzle'
       },
     ]

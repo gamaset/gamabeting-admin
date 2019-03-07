@@ -12,6 +12,7 @@
                                 <th>% Comissão</th>
                                 <th>R$ Comissão</th>
                                 <th>R$ Prêmio</th>
+                                <th>Agente</th>
                                 <th>Cliente</th>
                                 <th>Criado em</th>
                                 <th>Atualizado em</th>
@@ -22,11 +23,12 @@
                         <tbody>
                             <tr *ngFor="let aposta of apostas" style="text-align: center">
                                 <td>{{aposta.hashId}}</td>
-                                <td>{{aposta.totalOdd}}</td>
+                                <td>{{aposta.totalOdd | number}}</td>
                                 <td>{{aposta.betValue | currency:'BRL': true : '1.2-2'}}
                                 <td>{{aposta.commissionPercent | percent: '1.2-2'}}</td>
                                 <td>{{aposta.commissionValue | currency:'BRL': true : '1.2-2'}}
-                                <td>{{aposta.expectedValueDiscountCommission | currency:'BRL': true : '1.2-2'}}
+                                <td>{{aposta.profit | currency:'BRL': true : '1.2-2'}}
+                                <td>{{aposta.customer.agent.name}}</td>
                                 <td>{{aposta.customer.user.name}}</td>
                                 <td>{{aposta.createdDate}}</td>
                                 <td>{{aposta.updatedDate}}</td>

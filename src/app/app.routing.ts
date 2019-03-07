@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AuthGuardService } from './core/auth/AuthGuardService';
+import { RoleGuardService } from './core/auth/RoleGuardService';
 
 export const routes: Routes = [
   {
@@ -52,7 +53,7 @@ export const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
-    canActivate: [AuthGuardService], 
+    canActivate: [AuthGuardService],
     data: {
       title: 'Home'
     },
@@ -67,7 +68,11 @@ export const routes: Routes = [
       },
       {
         path: 'colaboradores',
-        loadChildren: './views/colaborador/colaborador.module#ColaboradorModule'
+        loadChildren: './views/colaborador/colaborador.module#ColaboradorModule',
+        canActivate: [RoleGuardService],
+        data: {
+          role: 'ROLE_MANAGER'
+        }
       },
       {
         path: 'clientes',
@@ -76,14 +81,18 @@ export const routes: Routes = [
       {
         path: 'apostas',
         loadChildren: './views/aposta/aposta.module#ApostaModule'
-      }
+      },
+      {
+        path: 'carteira',
+        loadChildren: './views/carteira/carteira.module#CarteiraModule'
+      },
 
     ]
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
