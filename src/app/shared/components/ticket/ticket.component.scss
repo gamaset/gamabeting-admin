@@ -42,7 +42,13 @@
 #payin,#datetime{
     margin-top: -18px;
 }
-
+#print{
+    cursor: pointer;
+    border: solid 1px;
+    padding: 3px;
+    font-weight: bold;
+    border-style: dashed;
+}
 .event-result{
     background: rgba(229, 229, 229, 0.73);
     height: 23px;

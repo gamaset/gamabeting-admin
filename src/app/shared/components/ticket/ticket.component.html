@@ -1,23 +1,17 @@
-<div class="col-md-3 col-sm-8" id="ticket">
+<div class="col-md-4 col-sm-8" id="ticket">
     <div class="title">
         <span>FAST BET</span>
     </div>
     <hr>
     <div class="col-md-12" id="ticket-body">
-        <div class="ticket-body-title">Fast bet NO <span class="ticket-chip">29220</span></div>
+        <div class="ticket-body-title">Fast bet NO <span class="ticket-chip">{{tickets.id}}</span></div>
         <div id="divisor"></div>
-        <div class="ticket-events">
+        <div *ngFor="let event of tickets.events" class="ticket-events">
             <div class="event-title">
-                <span>220 21120 mm Inglaterra - Championship</span>
+                <span>{{event.competition}} {{event.eventDescription}}</span>
             </div>
             <div class="event-result">
-                <span>Inglaterra - Championship</span>
-            </div>
-            <div class="event-title">
-                <span>220 21120 mm Inglaterra - Championship</span>
-            </div>
-            <div class="event-result">
-                <span>Inglaterra - Championship</span>
+                <span>{{event.marketDescription}}</span><span class="span-details-align">{{event.odd}}</span>
             </div>
         </div>
         <div id="ticket-details">
@@ -32,11 +26,11 @@
             </div>
             <div>
                 <span>Total Odd:</span>
-                <span class="span-details-align">600</span>
+                <span class="span-details-align">{{tickets.totalOdd}}</span>
             </div>
             <div>
                 <span>Max Payout:</span>
-                <span class="span-details-align">600</span>
+                <span class="span-details-align">{{tickets.expectedValueDiscountCommission}}</span>
             </div>
             <div>
                 <span>Combinations:</span>
@@ -45,10 +39,10 @@
             <br />
             <hr class="hr-ticket-body">
             <div id="datetime">
-                <span>30-03-2017 15:30:46</span>
+                <span>{{tickets.createdDate}}</span>
             </div>
             <div align="center">
-                <div class="ticket-body-title">Fast bet NO <span class="ticket-chip">29220</span></div>
+                <div class="ticket-body-title">Fast bet NO <span class="ticket-chip">{{tickets.id}}</span></div>
                 <p>Eu sou um ser humano eu preciso falar,Eu sou um ser humano eu preciso falar,Eu sou um ser humano eu
                     preciso falar</p>
             </div>
@@ -56,9 +50,11 @@
     </div>
     <br />
     <div align="center">
-        <div class="ticket-fast"><strong>FAST BE No </strong> <span style="color: red; font-weight: bold">29220</span></div>
+        <div class="ticket-fast"><strong>FAST BE No </strong> <span style="color: red; font-weight: bold">{{tickets.id}}</span></div>
     </div>
     <hr>
-
-    IMPRIMIR
+    <div>
+        <a id="print" (click)="donwloadPDF()">IMPRIMIR</a>
+    </div>
+    <br/>
 </div>
