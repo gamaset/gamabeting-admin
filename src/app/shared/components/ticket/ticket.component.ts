@@ -10,56 +10,87 @@ import html2canvas from 'html2canvas';
 export class TicketComponent {
 
   tickets = {
-    id: 3,
-    hashId: 'BETBKU4TNX3LLWIN',
+    id: 1,
+    hashId: "BETFCIPHYMOCSWIN",
+    totalOdd: 33.074999999999996,
+    betValue: 10,
+    profit: 330.75,
+    expectedValueDiscountCommission: 297.67,
+    commissionPercent: 0.1,
+    commissionValue: 33.08,
+    status: {
+      id: 1,
+      description: "REGISTRADA"
+    },
+    createdDate: "03-03-2019 03:03:16",
+    updatedDate: "07-03-2019 09:32:48",
     customer: {
-      createAt: '02-03-2019 08:29:55',
-      updateAt: '02-03-2019 08:29:55',
+      createAt: "03-03-2019 03:03:03",
+      updateAt: "03-03-2019 03:03:03",
       id: 1,
       user: {
-        createAt: '02-03-2019 08:29:55',
-        updateAt: '02-03-2019 08:29:55',
-        id: 5,
-        name: 'Sandro Guedes',
-        email: 'sandra@gmail.com',
-        username: '1551569394787',
-        taxId: '41236557858'
+        createAt: "03-03-2019 03:03:03",
+        updateAt: "03-03-2019 03:03:03",
+        id: 6,
+        name: "Sandro Guedes",
+        email: "sandrao@hotmail.com",
+        username: "1551636183006",
+        taxId: "41236557851"
       },
       agent: {
-        createAt: '02-03-2019 04:08:04',
-        updateAt: '02-03-2019 04:08:04',
-        id: 4,
-        name: 'Fernando Martins',
-        email: 'martins12@gmail.com',
-        username: 'martins12',
-        taxId: '41236554567'
+        createAt: "03-03-2019 02:58:07",
+        updateAt: "03-03-2019 02:58:07",
+        id: 3,
+        name: "Fernando Martins",
+        email: "martins12@live.com",
+        username: "martins12",
+        taxId: "41236557850"
       }
     },
-    betValue: 900,
-    expectedValueDiscountCommission: 3458.7,
-    commissionValue: 384.3,
-    commissionPercent: 0.1,
-    profit: 3843,
-    totalOdd: 4.27,
-    status: 0,
     events: [
       {
-        competition: 'Inglaterra - Championship',
-        eventDescription: 'Norwich x Birmingham',
-        eventDate: null,
-        marketDescription: 'Probabilidades',
-        odd: 2.44
+        id: 1,
+        eventId: 29141141,
+        eventName: "Bordeaux v Montpellier",
+        eventDate: "",
+        competition: {
+          id: 55,
+          description: "França - Ligue 1",
+          countryCode: "FRA"
+        },
+        market: {
+          id: 131,
+          marketId: "1.155171557",
+          marketName: "Match Odds",
+          marketSelection: {
+            selectionId: 44797,
+            selectionName: "Montpellier",
+            odd: 3.15
+          }
+        }
       },
       {
-        competition: 'Portugal - Primeira liga',
-        eventDescription: 'Nacional x Braga',
-        eventDate: null,
-        marketDescription: 'Probabilidades',
-        odd: 1.75
+        id: 2,
+        eventId: 29149505,
+        eventName: "Sporting Lisbon v Portimonense",
+        eventDate: "",
+        competition: {
+          id: 99,
+          description: "Portugal - Primeira liga",
+          countryCode: "PRT"
+        },
+        market: {
+          id: 132,
+          marketId: "1.155446635",
+          marketName: "Match Odds",
+          marketSelection: {
+            selectionId: 505982,
+            selectionName: "Portimonense",
+            odd: 10.5
+          }
+        }
       }
-    ],
-    createdDate: '02-03-2019 11:21:56',
-    updatedDate: '02-03-2019 11:21:56'
+    ]
   };
   constructor() {
   }
