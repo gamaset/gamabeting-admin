@@ -50,15 +50,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
-                                <label for="select1"><strong>Status da Aposta</strong></label>
-                                <select id="select1" name="select1" class="form-control" formControlName="betStatus">
-                                    <!-- <option value="0">PENDENTE</option>
-                                    <option value="1">REGISTRADA</option>
-                                    <option value="2">CANCELADA</option> -->
-                                    <option value="3">VENCIDA</option>
-                                    <option value="4">PERDIDA</option>
-                                </select>
+                            <div class="col-md-4">
+                                <label><strong>Status Atual da Aposta:</strong></label>
+                                {{bet.status.description}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="select1"><strong>Atualizar Status da Aposta</strong></label>
+                                    <select id="select1" name="select1" class="form-control" formControlName="betStatus">
+                                        <!-- <option value="0">PENDENTE</option>
+                                        <option value="1">REGISTRADA</option>
+                                        <option value="2">CANCELADA</option> -->
+                                        <option value="3">VENCIDA</option>
+                                        <option value="4">PERDIDA</option>
+                                    </select>
                             </div>
                         </div>
                     </div>
@@ -66,16 +70,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4" *ngFor="let event of bet.events; index as i">
+            <div class="col-sm-4 col-md-2" *ngFor="let event of bet.events; index as i">
                 <div class="card">
                     <div class="card-header">
                         Evento {{i+1}}
                     </div>
                     <div class="card-body">
-                        <div><strong>Jogo: </strong>{{event.eventDescription}}</div>
-                        <div><strong>Competição: </strong>{{event.competition}}</div>
-                        <div><strong>Mercado: </strong>{{event.marketDescription}}</div>
-                        <div><strong>Odd: </strong>{{event.odd}}</div>
+                        <div><strong>Jogo: </strong>{{event.eventName}}</div>
+                        <div><strong>Competição: </strong>{{event.competition.description}}</div>
+                        <div><strong>Mercado: </strong>{{event.market.marketName}}</div>
+                        <div><strong>Seleção: </strong>{{event.market.marketSelection.selectionName}}</div>
+                        <div><strong>Odd: </strong>{{event.market.marketSelection.odd}}</div>
+                        <div><strong>Data do Evento: </strong>{{event.eventDate | date: 'dd-MM-yyyy HH:mm:ss'}}</div>
                     </div>
                 </div>
             </div>
