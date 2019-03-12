@@ -10,6 +10,8 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class DetalharApostaComponent implements OnInit {
 
   bet: any;
+  ticketLabel = `Gerar Ticket`;
+  showTickets: boolean;
   betStatusSelected: number = 0;
   registerForm: FormGroup;
   submitted: boolean = false;
@@ -64,4 +66,13 @@ export class DetalharApostaComponent implements OnInit {
     });
   }
 
+  public showTicket(): void {
+     if(this.showTickets) {
+        this.showTickets = false;
+        this.ticketLabel = `Gerar Ticket`;
+     } else {
+      this.showTickets = true;
+      this.ticketLabel = `Esconder Ticket`;
+     }
+  }
 }
