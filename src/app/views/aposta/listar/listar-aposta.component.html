@@ -32,28 +32,26 @@
                                 <td>{{aposta.customer.user.name}}</td>
                                 <td>{{aposta.createdDate}}</td>
                                 <td>{{aposta.updatedDate}}</td>
-                                <td *ngIf="aposta.status == 0">
-                                    <span class="badge badge-warning">PENDENTE</span>
+                                <td *ngIf="aposta.status.id == 0">
+                                    <span class="badge badge-warning">{{aposta.status.description}}</span>
                                 </td>
-                                <td *ngIf="aposta.status == 1">
-                                    <span class="badge badge-primary">REGISTRADA</span>
+                                <td *ngIf="aposta.status.id == 1">
+                                    <span class="badge badge-primary">{{aposta.status.description}}</span>
                                 </td>
-                                <td *ngIf="aposta.status == 2">
-                                    <span class="badge badge-secondary">CANCELADA</span>
+                                <td *ngIf="aposta.status.id == 2">
+                                    <span class="badge badge-secondary">{{aposta.status.description}}</span>
                                 </td>
-                                <td *ngIf="aposta.status == 3">
-                                    <span class="badge badge-success">VENCIDA</span>
+                                <td *ngIf="aposta.status.id == 3">
+                                    <span class="badge badge-success">{{aposta.status.description}}</span>
                                 </td>
-                                <td *ngIf="aposta.status == 4">
-                                    <span class="badge badge-danger">PERDIDA</span>
+                                <td *ngIf="aposta.status.id == 4">
+                                    <span class="badge badge-danger">{{aposta.status.description}}</span>
                                 </td>
                                 <td>
-                                    <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
-                                        <a class="btn" ><i class="icon-control-play" title="Efetuar Aposta" (click) = "doBet(aposta.id)"></i></a>
-                                        <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]" ><i class="icon-settings" title="Ajustar Aposta"></i></a>
-                                        <!-- <a class="btn" [routerLink]="['/apostas/detalhar-aposta', aposta.id]"><i class="icon-control-play"
-                                                title="Efetuar Aposta"></i></a> -->
-                                        <a class="btn" href="#"><i class="icon-ban" title="Cancelar Aposta"></i></a>
+                                    <div class="btn-group">
+                                        <button *ngIf="showButtonRegisterBet(aposta.status.id)" class="btn btn-sm btn-primary" (click) = "doBet(aposta.id)" >Registrar</button>
+                                        <button *ngIf="showButtonRegisterBet(aposta.status.id)" class="btn btn-sm btn-danger" (click) = "cancelBet(aposta.id)" >Cancelar</button>
+                                        <button class="btn btn-sm btn-warning" (click) = "navigateDetailBet(aposta.id)">Detalhar</button>
                                     </div>
                                 </td>
                             </tr>

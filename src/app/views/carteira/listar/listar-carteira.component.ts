@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WalletBalanceService } from '../../../core/services/walletBalanceService';
-import { TokenStorageService } from '../../../core/auth/TokenStorageService';
+import { Router } from '@angular/router';
+import { RoleGuardService } from '../../../core/auth/RoleGuardService';
+import { WalletService } from '../../../core/services/walletService';
 
 @Component({
   selector: 'listar-carteira',
@@ -10,13 +12,29 @@ export class ListarCarteiraComponent implements OnInit {
 
   balances: any = [];
 
-  constructor(private walletBalanceService: WalletBalanceService, private tokenStorageService: TokenStorageService) { }
-
+  constructor(private walletService: WalletService, private walletBalanceService: WalletBalanceService, private roleGuardService: RoleGuardService, private router: Router) { }
 
   ngOnInit() {
-    this.walletBalanceService.listWallets('OPEN').subscribe((result: any) => {
+    this.listWalletBalancesByStatus(null);
+  }
+
+  navigateToListTransactions(balanceId) {
+    this.router.navigate(['carteiras/listar-transacoes/' + balanceId]);
+  }
+
+  listWalletBalancesByStatus(status) {
+    this.walletBalanceService.listWallets(status).subscribe((result: any) => {
       this.balances = result.data;
     })
   }
 
+  closeWallet(walletId) {
+    if (confirm('Deseja Efetuar o Fechamento da Carteira ?')) {
+      this.walletService.patchWalletStatus(walletId, 1).subscribe(() => {
+        this.listWalletBalancesByStatus(null);
+      });
+    }
+  }
+
 }
+

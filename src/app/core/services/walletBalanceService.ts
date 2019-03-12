@@ -19,7 +19,14 @@ export class WalletBalanceService {
   //   return this.httpClient.get(`${API_URL}/api/v1/agents/${agentId}/wallets?status=${status}`, httpOptions);
   // }
   listWallets(status) {
-    return this.httpClient.get(`${API_URL}?status=${status}`, httpOptions);
+    let url;
+    if(status){
+      url = `${API_URL}?status=${status}`;
+    }else{
+      url = `${API_URL}`;
+    }
+    
+    return this.httpClient.get(url, httpOptions);
   }
   listByBalanceId(balanceId) {
     return this.httpClient.get(`${API_URL}/${balanceId}/transactions`, httpOptions);

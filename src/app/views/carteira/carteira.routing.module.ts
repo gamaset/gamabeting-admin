@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListarCarteiraComponent } from './listar/listar-carteira.component';
 import { ListarTransacoesComponent } from './transacoes/listar-transacoes.component';
+import { RoleGuardService } from '../../core/auth/RoleGuardService';
+import { FormCarteiraComponent } from './form/form-carteira.component';
 
 const routes: Routes = [
     {
@@ -19,12 +21,21 @@ const routes: Routes = [
                 }
             },
             {
+                path: 'cadastrar-carteira',
+                component: FormCarteiraComponent,
+                canActivate: [RoleGuardService],
+                data: {
+                    title: 'Cadastro de Carteira',
+                    role: 'ROLE_MANAGER'
+                }
+            },
+            {
                 path: 'listar-transacoes/:balanceId',
                 component: ListarTransacoesComponent,
                 data: {
                     title: 'Lista de Transações'
                 }
-            }, 
+            },
         ]
     }
 ];

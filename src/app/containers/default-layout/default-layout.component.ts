@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { navItems } from './../../_nav';
+import { navItems, navItemsAdmin } from './../../_nav';
 import { TokenStorageService } from '../../core/auth/TokenStorageService';
 import { Router } from '@angular/router';
+import { RoleGuardService } from '../../core/auth/RoleGuardService';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +10,18 @@ import { Router } from '@angular/router';
 })
 export class DefaultLayoutComponent {
   username: string;
-  public navItems = navItems;
+  public navItems = [];
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  constructor(private tokenStorage: TokenStorageService, private router: Router) {
+
+  constructor(private tokenStorage: TokenStorageService, private roleGuard: RoleGuardService, private router: Router) {
     this.username = tokenStorage.getUsername();
+    if(this.roleGuard.isExpectedRole('ROLE_MANAGER')){
+      this.navItems = navItemsAdmin;
+    }else{
+      this.navItems = navItems;
+    }
 
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = document.body.classList.contains('sidebar-minimized');

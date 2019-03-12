@@ -18,6 +18,7 @@
                                 <th>Aposta Total Recebido</th>
                                 <th>Prêmio Total Pago</th>
                                 <th>Status Carteira</th>
+                                <th>Data Inicio</th>
                                 <th>Data Ult. Atualização</th>
                                 <th>Ações</th>
                             </tr>
@@ -30,10 +31,12 @@
                                 <td>{{balance.totalAmountReceived | currency:'BRL': true : '1.2-2'}}</td>
                                 <td>{{balance.totalAmountPaid | currency:'BRL': true : '1.2-2'}}</td>
                                 <td>{{balance.wallet.status.description}}</td>
+                                <td>{{balance.createdDate}}</td>
                                 <td>{{balance.lastDateUpdate}}</td>
                                 <td>
-                                    <div aria-label="Button group with nested dropdown" class="btn-group" role="group">
-                                        <a class="btn" [routerLink]="['/carteira/listar-transacoes', balance.id]" ><i class="icon-magnifier" title="Listar Transações"></i></a>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-primary" (click) = "navigateToListTransactions(balance.id)">Ver Transações</button>
+                                        <button class="btn btn-sm btn-success" *ngIf = "balance.wallet.status.id == 1" (click) = "closeWallet(balance.wallet.id)">Efetuar Fechamento</button>
                                     </div>
                                 </td>
                             </tr>

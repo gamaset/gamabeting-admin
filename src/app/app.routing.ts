@@ -83,7 +83,7 @@ export const routes: Routes = [
         loadChildren: './views/aposta/aposta.module#ApostaModule'
       },
       {
-        path: 'carteira',
+        path: 'carteiras',
         loadChildren: './views/carteira/carteira.module#CarteiraModule'
       },
 
