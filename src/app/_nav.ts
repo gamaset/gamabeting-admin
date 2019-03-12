@@ -21,18 +21,6 @@ export const navItems = [
     name: 'Administrativo'
   },
   {
-    name: 'Colaboradores',
-    url: '/colaboradores',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'Listar Colaboradores',
-        url: '/colaboradores/listar-colaboradores',
-        icon: 'icon-puzzle'
-      },
-    ]
-  },
-  {
     name: 'Clientes',
     url: '/clientes',
     icon: 'icon-puzzle',
@@ -262,3 +250,63 @@ export const navItems = [
   //   ]
   // }
 ];
+
+export const navItemsAdmin = [
+  {
+    title: true,
+    name: 'Administrativo'
+  },
+  {
+    name: 'Colaboradores',
+    url: '/colaboradores',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Colaboradores',
+        url: '/colaboradores/listar-colaboradores',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
+  {
+    name: 'Clientes',
+    url: '/clientes',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Clientes',
+        url: '/clientes/listar-clientes',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
+  {
+    name: 'Apostas',
+    url: '/apostas',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Apostas',
+        url: '/apostas/listar-apostas',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
+  {
+    name: 'Carteira',
+    url: '/carteiras',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Listar Carteiras',
+        url: '/carteiras/listar-carteiras',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'Criar Carteira',
+        url: '/carteiras/cadastrar-carteira',
+        icon: 'icon-puzzle'
+      },
+    ]
+  }
+]

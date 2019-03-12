@@ -20,7 +20,7 @@ export class ListarColaboradoresComponent implements OnInit {
   }
 
   canVisible(){
-    this.roleGuardService.isExpectedRole('ROLE_MANAGER');
+    return this.roleGuardService.isExpectedRole('ROLE_MANAGER');
   }
 
 }
