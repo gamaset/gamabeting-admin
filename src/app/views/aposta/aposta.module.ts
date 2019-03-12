@@ -13,6 +13,7 @@ import { ListarApostaComponent } from './listar/listar-aposta.component';
 // service
 import { ApostaService } from '../../core/services/ApostaService';
 import { DetalharApostaComponent } from './detalhar/detalhar-aposta.component';
+import { UiCommomModule } from '../../shared/commom.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { DetalharApostaComponent } from './detalhar/detalhar-aposta.component';
     ApostaRoutingModule,
     BsDropdownModule,
     ReactiveFormsModule,
+    UiCommomModule
   ],
   providers: [ApostaService],
   declarations: [ ListarApostaComponent, DetalharApostaComponent ]

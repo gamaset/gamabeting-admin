@@ -1,0 +1,13 @@
+<div *ngIf="sv.showMessage" class="col-md-8">
+    <div class="row">
+        <div class="icon col-md-2">
+            <img [src]="sv.img">
+        </div>
+        <div [ngStyle]="{'border-color': sv.color}" class="msg-body col-md-6">
+           <div class="msg-text">
+                <strong [ngStyle]="{'color': sv.color}">{{sv.title}}</strong>
+                <p>{{sv.message}}</p>
+           </div>
+        </div>
+    </div>
+</div>

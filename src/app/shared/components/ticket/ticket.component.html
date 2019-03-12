@@ -1,0 +1,67 @@
+<div class="col-md-4 col-sm-8" id="ticket">
+    <div class="title">
+        <span>CRBETS</span>
+    </div>
+    <hr>
+    <div class="col-md-12" id="ticket-body">
+        <div class="ticket-body-title">CRBets Ticket: <span class="ticket-chip">{{tickets.hashId}}</span></div>
+        <div id="divisor"></div>
+        <div *ngFor="let event of tickets.events" class="ticket-events">
+            <div class="event-title">
+                <span>{{event.competition.description}} {{event.eventName}}</span>
+            </div>
+            <div class="event-result">
+                <span>{{event.market.marketName}} - {{event.market.marketSelection.selectionName}}</span><span class="span-details-align">{{event.market.marketSelection.odd}}</span>
+            </div>
+        </div>
+        <div id="ticket-details">
+            <div id="hr-payin">
+                <span class="font-bold">Valor Apostado:</span>
+                <span class="span-details-align">{{tickets.betValue | currency:'BRL': true : '1.2-2'}}</span>
+                <hr class="hr-ticket-body">
+            </div>
+            <div id="payin">
+                <span class="font-bold">Qtd de Jogos:</span>
+                <span class="span-details-align">{{tickets.events.length}}</span>
+            </div>
+            <div>
+                <span class="font-bold">Cotação Total:</span>
+                <span class="span-details-align">{{tickets.totalOdd}}</span>
+            </div>
+            <div>
+                <span class="font-bold">Possível Retorno:</span>
+                <span class="span-details-align">{{tickets.profit | currency:'BRL': true : '1.2-2'}}</span>
+            </div>
+            <div>
+                <span class="font-bold">Paga:</span>
+                <span class="span-details-align">{{tickets.expectedValueDiscountCommission | currency:'BRL': true : '1.2-2'}}</span>
+            </div>
+            <div>
+                <span class="font-bold">Colaborador:</span>
+                <span class="span-details-align">{{tickets.customer.agent.name}}</span>
+            </div>
+            <div>
+                <span class="font-bold">Cliente:</span>
+                <span class="span-details-align">{{tickets.customer.user.name}}</span>
+            </div>
+            <br />
+            <hr id="hr-end" class="hr-ticket-body">
+            <div id="datetime">
+                <span>{{tickets.updatedDate}}</span>
+            </div>
+            <div align="center">
+                <div class="ticket-body-title">CRBets Ticket: <span class="ticket-chip">{{tickets.hashId}}</span></div>
+                <p>BOA SORTE !!!</p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div align="center">
+        <div class="ticket-fast"><strong>CRBets Ticket: </strong> <span style="color: red; font-weight: bold">{{tickets.hashId}}</span></div>
+    </div>
+    <hr>
+    <div>
+        <a id="print" (click)="donwloadPDF()">IMPRIMIR</a>
+    </div>
+    <br />
+</div>
