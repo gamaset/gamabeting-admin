@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WalletBalanceService } from '../../../core/services/walletBalanceService';
+import { WalletBalanceService } from '../../../core/services/WalletBalanceService';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

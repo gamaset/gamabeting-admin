@@ -52,8 +52,12 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-4">
+                <label><strong>Status da Aposta:</strong></label>
+                {{ bet.status.description }}
+              </div>
               <div class="col-md-3">
-                <label for="select1"><strong>Status da Aposta</strong></label>
+                <label for="select1"><strong>Atualizar Status da Aposta</strong></label>
                 <select
                   id="select1"
                   name="select1"
@@ -90,10 +94,11 @@
         <div class="card">
           <div class="card-header">Evento {{ i + 1 }}</div>
           <div class="card-body">
-            <div><strong>Jogo: </strong>{{ event.eventDescription }}</div>
-            <div><strong>Competição: </strong>{{ event.competition }}</div>
-            <div><strong>Mercado: </strong>{{ event.marketDescription }}</div>
-            <div><strong>Odd: </strong>{{ event.odd }}</div>
+            <div><strong>Jogo: </strong>{{ event.eventName }}</div>
+            <div><strong>Competição: </strong>{{ event.competition.description }}</div>
+            <div><strong>Mercado: </strong>{{ event.market.marketName }}</div>
+            <div><strong>Mercado: </strong>{{ event.eventDate | date }}</div>
+            <div><strong>Odd: </strong>{{ event.market.marketSelection.odd | number }}</div>
           </div>
         </div>
       </div>

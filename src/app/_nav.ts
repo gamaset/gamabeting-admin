@@ -257,6 +257,23 @@ export const navItemsAdmin = [
     name: 'Administrativo'
   },
   {
+    name: 'Configuracoes',
+    url: '/configuracoes',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Tipos de Evento',
+        url: '/configuracoes/tipos-de-evento',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'Competicoes',
+        url: '/configuracoes/competicoes',
+        icon: 'icon-puzzle'
+      },
+    ]
+  },
+  {
     name: 'Colaboradores',
     url: '/colaboradores',
     icon: 'icon-puzzle',

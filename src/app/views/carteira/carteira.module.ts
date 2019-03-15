@@ -13,7 +13,7 @@ import { FormCarteiraComponent } from './form/form-carteira.component';
 import { ListarTransacoesComponent } from './transacoes/listar-transacoes.component';
 
 // service
-import { WalletBalanceService } from '../../core/services/walletBalanceService';
+import { WalletBalanceService } from '../../core/services/WalletBalanceService';
 
 @NgModule({
   imports: [

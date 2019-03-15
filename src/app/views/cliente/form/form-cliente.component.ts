@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import { CustomerService } from '../../../core/services/customerService';
+import { CustomerService } from '../../../core/services/CustomerService';
 import { CustomerModel } from '../../../core/models/CustomerModel';
 import { AgentModel } from '../../../core/models/AgentModel';
-import { AgentService } from '../../../core/services/agentService';
+import { AgentService } from '../../../core/services/AgentService';
 import { log } from 'util';
 
 @Component({

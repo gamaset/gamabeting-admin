@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { WalletBalanceService } from '../../../core/services/walletBalanceService';
+import { WalletBalanceService } from '../../../core/services/WalletBalanceService';
 import { Router } from '@angular/router';
 import { RoleGuardService } from '../../../core/auth/RoleGuardService';
-import { WalletService } from '../../../core/services/walletService';
+import { WalletService } from '../../../core/services/WalletService';
 
 @Component({
   selector: 'listar-carteira',
