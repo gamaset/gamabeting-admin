@@ -97,7 +97,8 @@
             <div><strong>Jogo: </strong>{{ event.eventName }}</div>
             <div><strong>Competição: </strong>{{ event.competition.description }}</div>
             <div><strong>Mercado: </strong>{{ event.market.marketName }}</div>
-            <div><strong>Mercado: </strong>{{ event.eventDate | date }}</div>
+            <div><strong>Selecao: </strong>{{ event.market.marketSelection.selectionName }}</div>
+            <div><strong>Data: </strong>{{ event.eventDate | date }}</div>
             <div><strong>Odd: </strong>{{ event.market.marketSelection.odd | number }}</div>
           </div>
         </div>

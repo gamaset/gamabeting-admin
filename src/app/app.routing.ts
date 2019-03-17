@@ -67,6 +67,14 @@ export const routes: Routes = [
         loadChildren: './views/dashboard-default/dashboard-default.module#DashboardDefaultModule'
       },
       {
+        path: 'configuracoes',
+        loadChildren: './views/configuracao/configuracao.module#ConfigurationModule',
+        canActivate: [RoleGuardService],
+        data: {
+          role: 'ROLE_MANAGER'
+        }
+      },
+      {
         path: 'colaboradores',
         loadChildren: './views/colaborador/colaborador.module#ColaboradorModule',
         canActivate: [RoleGuardService],

@@ -8,7 +8,7 @@
         <div id="divisor"></div>
         <div *ngFor="let event of tickets.events" class="ticket-events">
             <div class="event-title">
-                <span>{{event.competition.description}} {{event.eventName}}</span>
+                <span>{{event.competition.description}} {{event.eventName}} - {{event.eventDate | date}}</span>
             </div>
             <div class="event-result">
                 <span>{{event.market.marketName}} - {{event.market.marketSelection.selectionName}}</span><span class="span-details-align">{{event.market.marketSelection.odd}}</span>

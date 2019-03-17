@@ -1,0 +1,52 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- <button type="button" class="btn btn-square btn-primary float-right" [routerLink]="['/clientes/cadastrar-cliente']" *ngIf="isDisplayButtonCreateCustomer('ROLE_AGENT')" >
+                                Cadastrar Cliente</button>
+                        </div> -->
+                        </div>
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>Pais</th>
+                                    <th>Tipo de Evento</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let comp of competitions">
+                                    <td>{{comp.id}}</td>
+                                    <td>{{comp.description}}</td>
+                                    <td>{{comp.countryCode}}</td>
+                                    <td>{{comp.eventType.name}}</td>
+                                    <td>
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" class="switch-input" (change)="toggleVisibility(comp.id, $event.target.checked)" *ngIf="comp.active" checked>
+                                            <input type="checkbox" class="switch-input" (change)="toggleVisibility(comp.id, $event.target.checked)" *ngIf="!comp.active">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
